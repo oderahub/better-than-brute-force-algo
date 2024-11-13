@@ -1,0 +1,48 @@
+## Optimized Algorithm to Locate the 78,001st Element
+This project implements an optimized algorithm to locate the 78,001st element in an unsorted dataset with 100K+ entries, using Quickselect and parallel processing to achieve both speed and memory efficiency.
+
+## Approach
+## Quickselect Algorithm:
+
+Utilizes the Quickselect algorithm (a variant of Quicksort) to find the k-th smallest element in an unsorted array in O(n) average time complexity, without the need to fully sort the array.
+A median-of-three pivot strategy is used to enhance the Quickselect algorithm's performance by reducing the chances of worst-case scenarios.
+Parallel Processing:
+
+The dataset is split into chunks, with each chunk processed by a separate worker thread. This allows the algorithm to leverage multiple CPU cores, improving performance for large datasets.
+Early termination ensures that as soon as the 78,001st element is found by one worker, the process is halted and other workers are terminated, saving unnecessary computation.
+
+## Criteria 
+## Execution Time :
+
+Quickselect has an average time complexity of O(n), making it much faster than brute-force sorting methods, which have a time complexity of O(n log n) or higher.
+
+## Memory Efficiency :
+
+The algorithm operates in-place with no need for additional storage apart from the input array, achieving O(1) space complexity.
+Chunks of data are processed individually in parallel, minimizing memory usage while taking advantage of multi-core systems.
+
+
+## Parallel Processing (2 pts):
+
+Uses the worker_threads module in Node.js to distribute the computation of dataset chunks across multiple workers, enhancing performance on multi-core processors.
+
+
+## Code Quality :
+
+The code is clean, modular, and uses best practices for parallel processing and error handling. Early termination ensures efficient use of resources.
+
+## Setup Instructions
+## Prerequisites
+Node.js (v14 or higher) should be installed on your machine.
+Installation
+Clone this repository:
+
+git clone <repository_url>
+cd <repository_folder>
+
+
+run 
+node parallelQuickSelect.js
+
+Output
+The algorithm will print the time taken to find the 78,001st element and display the value of the element found.
